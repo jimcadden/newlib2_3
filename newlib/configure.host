@@ -419,6 +419,13 @@ case "${host}" in
   d30v*)
 	sys_dir=
 	;;
+   *-*-ebbrt*)
+ 	newlib_cflags="${newlib_cflags} -DREENTRANT_SYSCALLS_PROVIDED"
+ 	newlib_cflags="${newlib_cflags} -DMISSING_SYSCALL_NAMES"
+ 	newlib_cflags="${newlib_cflags} -DMALLOC_PROVIDED"
+ 	sys_dir=ebbrt
+ 	have_crt0="no"
+ 	;;
   epiphany-*-*)
 	sys_dir=epiphany
 	# crt0 is provided by libgloss.
